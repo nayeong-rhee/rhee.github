@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>"못생김" 존중하기</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+	<style type="text/css">
+		:root {
+			
+			--accent-green: #6DFF68; 
+			--bg-dark: #111111;
+			--bg-light: #ffffff;
+			--text-dark: #1d1d1f;
+			--text-light: #f5f5f7;
+			
+			/* Apple 푸터 색상 */
+			--footer-bg: #f5f5f7;
+			--footer-text-title: #1d1d1f;
+			--footer-text-link: #424245;
+		}
+
+		
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Noto Sans KR", sans-serif;
+			font-weight: 400;
+			line-height: 1.6;
+			background-color: var(--bg-dark); 
+		}
+
+		h1, h2, h3, p {
+			margin: 0;
+		}
+
+		
+		section {
+			width: 100%;
+			padding: 120px 0;
+			box-sizing: border-box; 
+		}
+		
+		.container {
+			width: 90%;
+			max-width: 1100px;
+			margin: 0 auto;
+		}
+
+		
+		.theme-dark {
+			background-color: var(--bg-dark);
+			color: var(--text-light);
+		}
+		.theme-light {
+			background-color: var(--bg-light);
+			color: var(--text-dark);
+		}
+
+		
+		.parallax-bg {
+			height: 100vh; 
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed; 
+			
+			
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			color: white;
+			padding: 0;
+		}
+		
+		
+		.bg-1000 { 
+			background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1000.jpg'); 
+		}
+
+		
+		.main-header { 
+			background-color: var(--bg-light);
+			color: var(--text-dark);
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			padding: 0;
+		}
+		
+		.main-header .hero-content h1 { 
+			font-family: 'Noto Sans KR', sans-serif;
+			font-weight: 900;
+			font-size: clamp(3rem, 10vw, 7rem); 
+			line-height: 1.1;
+			color: var(--accent-green);
+			
+		}
+		.main-header .hero-content p { 
+			font-size: clamp(1rem, 3vw, 1.5rem);
+			font-weight: 300;
+			color: var(--text-dark); 
+			margin-top: 10px;
+		}
+
+		
+		.main-header .hero-content img { 
+			width: 90%;
+			max-width: 600px; 
+			margin-top: 30px;
+			border-radius: 12px;
+			
+		}
+
+
+		
+		.content-layout {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 50px;
+		}
+		
+		.content-layout .text-block {
+			flex: 1; 
+			min-width: 300px; 
+		}
+		
+		.content-layout .image-block {
+			flex: 1.2; 
+			min-width: 300px;
+		}
+		
+		.content-layout .image-block img {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 12px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+		
+		
+		.content-layout.layout-reverse {
+			flex-direction: row-reverse;
+		}
+
+		
+		.text-block h2 {
+			
+			font-family: 'Noto Sans KR', sans-serif;
+			
+			font-weight: 900;
+			font-size: clamp(4.5rem, 12vw, 9rem);
+			color: var(--accent-green);
+			line-height: 1.2; 
+			margin-bottom: 25px;
+		}
+		
+		
+		.theme-light .text-block h2 {
+			color: var(--accent-green); 
+		}
+		.theme-dark .text-block h2 {
+			color: var(--accent-green);
+		}
+
+		.text-block p {
+			font-size: 1.1rem;
+			font-weight: 300;
+			max-width: 500px; 
+		}
+
+		
+		.parallax-bg .text-block p {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+
+		
+		footer {
+			background-color: var(--footer-bg);
+			color: var(--footer-text-link);
+			padding: 50px 0 30px 0;
+			font-size: 13px;
+		}
+		
+		.footer-container {
+			width: 90%;
+			max-width: 980px;
+			margin: 0 auto;
+		}
+		
+		
+		.footer-nav {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 20px;
+		}
+		
+		.footer-column h4 {
+			font-size: 13px;
+			font-weight: 600;
+			color: var(--footer-text-title);
+			margin-bottom: 12px;
+		}
+		
+		.footer-column ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.footer-column li {
+			margin-bottom: 10px;
+		}
+		
+		.footer-column a {
+			color: var(--footer-text-link);
+			text-decoration: none;
+		}
+		
+		
+		
+		.footer-bottom {
+			border-top: 1px solid #d2d2d7;
+			margin-top: 30px;
+			padding-top: 20px;
+			color: #6e6e73;
+		}
+		
+		.footer-bottom p {
+			font-size: 12px;
+		}
+
+		
+		@media (max-width: 768px) {
+			
+			.content-layout,
+			.content-layout.layout-reverse {
+				flex-direction: column;
+				gap: 30px;
+			}
+			
+			.text-block h2 {
+				
+				font-size: clamp(3rem, 15vw, 4.5rem);
+			}
+
+			
+			.footer-nav {
+				grid-template-columns: 1fr;
+			}
+			
+			.footer-column {
+				margin-bottom: 20px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<header class="main-header"> 
+		<div class="hero-content">
+			<h1>"못생김" 존중하기</h1>
+			<p>B급 감성 디자인 트렌드</p>
+			<img src="100.jpg" alt="디자인은 배려 이미지"> 
+		</div>
+	</header>
+
+	<section class="theme-dark">
+		<div class="container content-layout">
+			<div class="text-block">
+				<h2>정신<br>사나워?</h2>
+				<p>한 디자인에 온갖 효과 사용하기, 서로 다른 폰트 섞어쓰기, 저해상도 이미지 사용하기, 대충 그린 일러스트 쓰기 등<br>요즘 디자인 왜 이래요?</p>
+			</div>
+			<div class="image-block">
+				<img src="200.jpg" alt="정신 사나운 디자인 예시">
+			</div>
+		</div>
+	</section>
+
+	<section class="theme-dark">
+		<div class="container content-layout layout-reverse">
+			<div class="text-block">
+				<h2>ANTI<br>DESIGN</h2>
+				<p>자간, 행간, 가독성, 고해상도 등을 중요시했던 보통의 디자인에서 벗어나 규칙이 파괴된 과감한 디자인 기조가 유행하는 중이다.<br>예상치 못한 시각 요소를 사용하는 것이 포인트이다.</p>
+			</div>
+			<div class="image-block">
+				<img src="300.jpg" alt="안티 디자인 컨셉 이미지">
+			</div>
+		</div>
+	</section>
+	
+	<section class="theme-light">
+		<div class="container content-layout layout-reverse">
+			<div class="text-block">
+				<h2>하지마에서<br> 왜안돼?<br>로</h2>
+				<p>각각의 부조화스러운 요소들이 한데 모였을 때, 흥미로워 보이게 구성되는 안티 디자인의 영역이 천재적이라는 의견이다.</p>
+			</div>
+			<div class="image-block">
+				<img src="400.jpg" alt="규칙 파괴의 매력">
+			</div>
+		</div>
+	</section>
+
+	<section class="theme-dark">
+		<div class="container content-layout">
+			<div class="text-block">
+				<h2>이점은<br>무얼까?</h2>
+				</div>
+			<div class="image-block">
+				<img src="500.jpg" alt="안티 디자인의 이점">
+			</div>
+		</div>
+	</section>
+	
+	<section class="theme-dark">
+		<div class="container content-layout layout-reverse">
+			<div class="text-block">
+				<h2>사례 1:<br>BRAT</h2>
+				<p>찰리 xcx의 2024년 발매한 앨범 표지. 저해상도에 투박한 녹색, 간단한 영문 글자가 끝이다. 찰리가 제일 못생긴 앨범을 만들자고 해서 탄생했다. 그 결과 엄청난 유행의 선구자가 되었다.</p>
+			</div>
+			<div class="image-block">
+				<img src="600.jpg" alt="Charli XCX BRAT 앨범 커버">
+			</div>
+		</div>
+	</section>
+	
+	<section class="theme-dark"> 
+		<div class="container content-layout">
+			<div class="text-block">
+				<h2>사례 2:<br>한국<br> 간판</h2>
+				<p>한국 거리의 간판은 한정된 직사각형 공간 안에 글자, 사진, 가격, 로고, 전화번호 등 모든 요소를 욱여넣거나, 원색 위주의 자극적인 색을 주로 사용하여 여러 간판들이 모여 있으면 보행자의 시각적 피로를 유발한다. 하지만 이러한 한국 간판 디자인은 오히려 매체들에서 한국 컬쳐의 트레이드 마크가 되기도 한다.</p>
+			</div>
+			<div class="image-block">
+				<img src="700.jpg" alt="한국 간판 이미지">
+			</div>
+		</div>
+	</section>
+	
+	<section class="theme-light"> 
+		<div class="container content-layout layout-reverse">
+			<div class="text-block">
+				<h2>중도<br>지키기</h2>
+				<p>디자인에 정답은 없지만 쓰임새와 사용자(타겟층)에 맞춘 유연한 디자인이 필요하다. 안티 디자인을 남발하는 것에 주의해야한다.</p>
+			</div>
+			<div class="image-block">
+				<img src="900.jpg" alt="중도 지키기 컨셉">
+			</div>
+		</div>
+	</section>
+
+	<section class="parallax-bg bg-1000">
+		<div class="container"> 
+			<div class="text-block" style="text-align: center;"> 
+				<h2>디자인은<br>배려</h2>
+				<p>디자인은 나를 표현하는 도구이자, 다른 사람을 생각하는 마음이다. 나만의 개성을 담되, 사용자가 편안하게 느낄 수 있도록 배려하자.<br><br>-이케아 디자이너 일스 크로포드</p>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="footer-container">
+			<nav class="footer-nav">
+				<div class="footer-column">
+					<h4>디자인 리소스</h4>
+					<ul>
+						<li><a>튜토리얼</a></li>
+						<li><a>레퍼런스 사이트</a></li>
+						<li><a>무료 폰트 라이브러리</a></li>
+						<li><a>목업 자료실</a></li>
+						<li><a>디자인 툴 가이드</a></li>
+						<li><a>너무 춥네요</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>트렌드 & 영감</h4>
+					<ul>
+						<li><a>안티-디자인</a></li>
+						<li><a>2025년 트렌드 </a></li>
+						<li><a>건강 유의하세요</a></li>
+						<li><a>B급 감성 디자인</a></li>
+						<li><a>디자이너 인터뷰</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>학교 & 교육</h4>
+					<ul>
+						<li><a>시각디자인학과 </a></li>
+						<li><a>따뜻하게 입고</a></li>
+						<li><a>잘 다닙시다</a></li>
+						<li><a>서브라임 가이드</a></li>
+						<li><a>디자인 공모전 리스트</a></li>
+						<li><a>신입 디자이너 Q&A</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>과제 제출 프로젝트</h4>
+					<ul>
+						<li><a>'못생김' 존중하기</a></li>
+						<li><a>'BRAT' 앨범 분석</a></li>
+						<li><a>맨디니 디자인 연구</a></li>
+						<li><a>타이포그래피 실험실</a></li>
+						<li><a>나의 GitHub 페이지</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>사이트 정보</h4>
+					<ul>
+						<li><a>제작자: 이나영</a></li>
+						<li><a>2025년 디미디</a></li>
+						<li><a>연락하기 (Email)</a></li>
+						<li><a>이 사이트에 대하여</a></li>
+						<li><a>개인정보 처리방침</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="footer-bottom" style="text-align: center;">
+				
+				<p>Copyright &copy; 2025 Nayeong Lee. 모든 권리 보유.</p>
+			</div>
+		</div>
+	</footer>
+
+	</body>
+</html>
